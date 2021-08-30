@@ -14,8 +14,8 @@ class ModelTest {
     void rand() {
         int randomNumber;
         for (int i = 0; i < 100000; i++) {
-            randomNumber = testModelInstance.rand(0,100);
-            boolean inRange = (randomNumber >= 0 && randomNumber <= 100);
+            randomNumber = testModelInstance.rand(100,200);
+            boolean inRange = (randomNumber >= 100 && randomNumber <= 200);
             assertTrue(inRange);
         }
 
