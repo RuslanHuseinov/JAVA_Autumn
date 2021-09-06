@@ -21,8 +21,6 @@ public class NoteBookUtilities {
     public NoteBook Note(){
         NoteBook result =  new NoteBook();
 
-
-
         String loginRegex = this.bundle.getString(RegexConstants.LOGIN_REGEX);
         String nameRegex = this.bundle.getString(RegexConstants.NAME_REGEX);
         String nameMessage = view.messageBuilder(view.bundle.getString(TextConstants.FIRST_NAME),
@@ -33,19 +31,21 @@ public class NoteBookUtilities {
                 view.bundle.getString(TextConstants.STRING_FORMAT),
                 loginRegex);
 
-
         result.setLogin(inputStringWithScanner(loginMessage,loginRegex));
         result.setName(inputStringWithScanner(nameMessage,nameRegex));
-
 
         return result;
     }
     String inputStringWithScanner(String message, String regex){
         String result;
         view.printInputMessage(message);
-        while ( !(scanner.hasNext() && (result = scanner.next()).matches(regex))){
-            view.printWrondDataMessage(message);
+        while (true){
+            result = scanner.nextLine();
+            if(result.matches(regex)){
+                return result;
+            }else {
+                view.printWrondDataMessage(message);
+            }
         }
-        return result;
     }
 }

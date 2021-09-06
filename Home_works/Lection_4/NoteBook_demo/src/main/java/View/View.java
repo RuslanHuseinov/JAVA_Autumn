@@ -6,12 +6,12 @@ import java.util.ResourceBundle;
     public class View {
     public final static String BUNNDLE_NAME = "messages";
     public final static String SPACE_LITTERAL = " ";
-    public final ResourceBundle bundle = ResourceBundle.getBundle(BUNNDLE_NAME,new Locale("ua","UA"));
+    public final ResourceBundle bundle = ResourceBundle.getBundle(BUNNDLE_NAME,new Locale("",""));
 
     public String messageBuilder(String... strings){
         StringBuilder result = new StringBuilder();
         for (String message: strings) {
-            result.append(SPACE_LITTERAL + message);
+            result.append(message + SPACE_LITTERAL);
         }
         return result.toString();
     }
