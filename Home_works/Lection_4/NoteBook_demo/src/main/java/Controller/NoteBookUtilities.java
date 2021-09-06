@@ -18,7 +18,7 @@ public class NoteBookUtilities {
         this.bundle = bundle;
     }
 
-    public NoteBook Note(){
+    public NoteBook note(){
         NoteBook result =  new NoteBook();
 
         String loginRegex = this.bundle.getString(RegexConstants.LOGIN_REGEX);

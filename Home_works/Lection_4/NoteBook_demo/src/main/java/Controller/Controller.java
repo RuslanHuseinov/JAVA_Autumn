@@ -22,7 +22,7 @@ public class Controller {
 
     public void start(){
         Scanner scanner = new Scanner(System.in);
-        NoteBook userNoteBook  = new NoteBookUtilities(this.view,scanner,this.controllerBundle).Note();
+        NoteBook userNoteBook  = new NoteBookUtilities(this.view,scanner,this.controllerBundle).note();
     }
 }
 
