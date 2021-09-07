@@ -3,9 +3,13 @@ import java.io.IOException;
 public class App {
     public static void main(String[] args) {
         System.err.println("#1.in");
-        f(); // создаем фрейм, помещаем в стек, передаем в него управление
-        System.err.println("#1.out"); // вернулись
-    } // выходим из текущего фрейма, кончились инструкции
+        try {
+            f();
+        }catch (Error error){
+            System.err.println("error catch");
+        }
+        System.err.println("#1.out");
+    }
 
     public static void f() {
         System.err.println(".   #2.in");
@@ -22,8 +26,8 @@ public class App {
     public static void h() {
         System.err.println(".   .   .   #4.in");
         if (true) {
-            System.err.println(".   .   .   #4.RETURN");
-            return; // выходим из текущего фрейма по 'return'
+            System.err.println(".   .   .   #4.THROW");
+            throw new Error();
         }
         System.err.println(".   .   .   #4.out"); // ПРОПУСКАЕМ
     }
@@ -32,21 +36,5 @@ public class App {
             throw new IllegalArgumentException("Negative sizes: w = " + width + ", h = " + height);
         }
         return height * width;
-    }
-
-    public static void foo(NullPointerException exc){
-        try {
-            throw exc;
-        }catch (NullPointerException sameExc){
-            foo(sameExc);
-        }
-    }
-
-    public static String infinity() /*throws Throwable*/{
-//        throw new IOException();
-//        throw new ArithmeticException();
-        throw new NullPointerException();
-//        System.exit(0);
-//        throw new Error();
     }
 }
