@@ -1,25 +1,35 @@
 import java.io.IOException;
 
 public class App {
-    public static void main(String[] args) {
-        System.err.println("#1.in");
+    public static void main(String[] args){
         try {
-            f();
-        }catch (Error error){
-            System.err.println("error catch");
+            throw new Error();
+
+        }catch (Exception exc){
+            if (exc instanceof RuntimeException){
+                System.out.println("this is runtime exc");
+            }else System.err.println("not a runtime exc");
         }
-        System.err.println("#1.out");
     }
 
     public static void f() {
         System.err.println(".   #2.in");
-        g(); // создаем фрейм, помещаем в стек, передаем в него управление
-        System.err.println(".   #2.out");  //вернулись
-    } // выходим из текущего фрейма, кончились инструкции
+        try {
+            g();
+        }catch (Error error){
+            System.err.println("error catch");
+        }
+        System.err.println(".   #2.out");
+    }
 
     public static void g() {
         System.err.println(".   .   #3.in");
-        h(); // создаем фрейм, помещаем в стек, передаем в него управление
+        try {
+            h();
+        }catch (Error error){
+            System.err.println("error catch");
+//            System.out.println("error catch");
+        }
         System.err.println(".   .   #3.out"); // вернулись
     } // выходим из текущего фрейма, кончились инструкции
 
