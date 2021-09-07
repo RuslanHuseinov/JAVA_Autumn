@@ -3,48 +3,40 @@ import java.io.IOException;
 public class App {
     public static void main(String[] args){
         try {
-            throw new Error();
-
+            Throwable exc = new Error();
+            throw  exc;
+        }catch (RuntimeException exc){
+            System.err.println("runtime catched");
         }catch (Exception exc){
-            if (exc instanceof RuntimeException){
-                System.out.println("this is runtime exc");
-            }else System.err.println("not a runtime exc");
+            System.err.println("exception catched");
+        }catch (Throwable exc){
+            System.err.println("throwable catched");
         }
-    }
 
-    public static void f() {
-        System.err.println(".   #2.in");
-        try {
-            g();
-        }catch (Error error){
-            System.err.println("error catch");
-        }
-        System.err.println(".   #2.out");
-    }
 
-    public static void g() {
-        System.err.println(".   .   #3.in");
-        try {
-            h();
-        }catch (Error error){
-            System.err.println("error catch");
-//            System.out.println("error catch");
-        }
-        System.err.println(".   .   #3.out"); // вернулись
-    } // выходим из текущего фрейма, кончились инструкции
 
-    public static void h() {
-        System.err.println(".   .   .   #4.in");
-        if (true) {
-            System.err.println(".   .   .   #4.THROW");
-            throw new Error();
-        }
-        System.err.println(".   .   .   #4.out"); // ПРОПУСКАЕМ
+
+
+
+//        try {
+//            System.err.print(" 0");
+//            if (true) {throw new RuntimeException();}
+//            System.err.print(" 1");
+//        } catch (RuntimeException e) {
+//            System.err.print(" 2");
+//            try {
+//                System.err.print(" 3");
+//                if (true) {throw new Error();}
+//                System.err.print(" 4");
+//            } catch (Throwable t) {
+//                System.err.print(" 5");
+//            }
+//            System.err.print(" 6");
+//        } catch (Error e) {
+//            System.err.print(" 7");
+//        }
+//        System.err.println(" 8");
+
     }
-    public static int area(int width, int height){
-        if (width < 0 || height < 0){
-            throw new IllegalArgumentException("Negative sizes: w = " + width + ", h = " + height);
-        }
-        return height * width;
-    }
+    // 0 2 3 5 6 8
 }
