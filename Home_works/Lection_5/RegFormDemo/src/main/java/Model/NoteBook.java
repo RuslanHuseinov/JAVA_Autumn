@@ -1,6 +1,9 @@
 package Model;
 
+import java.util.ArrayList;
+
 public class NoteBook {
+    ArrayList<String> arrayList = new ArrayList<>();
     private String login;
     private String name;
     private String surname;
