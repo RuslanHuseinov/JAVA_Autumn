@@ -1,7 +1,5 @@
 package Controller;
 
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
-
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -17,11 +15,11 @@ public enum DBConnection {
     private Connection connection;
 
     DBConnection(){
-        try {
-            Properties properties = DBConnection.loadPropertiesFile()
-            String URL = properties.getProperty("url");
-            String USER = properties.getProperty("user");
-            String PASSWORD = properties.getProperty("password");
+
+            Properties properties = DBConnection.loadPropertiesFile();
+            String URL = properties.getProperty("db.url");
+            String USER = properties.getProperty("db.user");
+            String PASSWORD = properties.getProperty("db.password");
 
             try {
                 connection = DriverManager.getConnection(URL,USER,PASSWORD);
@@ -29,16 +27,11 @@ public enum DBConnection {
                 System.err.println(exc);
             }
 
-        }catch (IOException exc){
-            System.err.println(exc);
-        }
-
-
     }
     private static Properties loadPropertiesFile() {
         Properties prop = new Properties();
         try {
-            InputStream is = new FileInputStream("jdbc.properties");
+            InputStream is = new FileInputStream("src/main/resources/jdbc.properties");
             prop.load(is);
             is.close();
         }catch (IOException exc){
