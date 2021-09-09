@@ -9,5 +9,6 @@ public interface MessageConsts {
     public final String PHONE_NUMBER_MESSAGE = "input.phone_number.data";
     public final String PASSWORD_MESSAGE = "input.password.data";
     public final String FORMAT_MESSAGE = "input.format.data";
+    public final String SPACE_LITTERAL = " ";
 }
 

@@ -3,10 +3,10 @@ package Model;
 import java.util.ArrayList;
 
 public class NoteBook {
-    ArrayList<String> arrayList = new ArrayList<>();
     private String login;
     private String name;
     private String surname;
+    private String phoneNumber;
     private String password;
 
     public String getLogin() {
@@ -39,5 +39,13 @@ public class NoteBook {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 }

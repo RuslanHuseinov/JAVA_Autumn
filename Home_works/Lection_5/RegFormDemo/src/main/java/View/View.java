@@ -3,7 +3,7 @@ package View;
 import java.util.ResourceBundle;
 
 public class View {
-    ResourceBundle resourceBundle = ResourceBundle.getBundle()
+    private ResourceBundle resourceBundle = ResourceBundle.getBundle("");
     public void printMessage(String message){
         System.out.println(message);
     }
@@ -17,11 +17,12 @@ public class View {
         //        some code
         System.out.println(message);
     }
-    
-    /*public String concatMessages(String ...args){
+
+    public String concatMessages(String ...args){
         StringBuilder strBuilder = new StringBuilder();
         for (String str : args){
-            strBuilder.append(str + );
+            strBuilder.append(str + MessageConsts.SPACE_LITTERAL);
         }
-    }*/
+        return strBuilder.toString();
+    }
 }
