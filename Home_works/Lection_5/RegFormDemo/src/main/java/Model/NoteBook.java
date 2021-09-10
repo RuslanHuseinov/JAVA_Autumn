@@ -49,14 +49,4 @@ public class NoteBook {
         this.phoneNumber = phoneNumber;
     }
 
-    @Override
-    public String toString() {
-        return "NoteBook{" +
-                "login='" + login + '\'' +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", password='" + password + '\'' +
-                '}';
-    }
 }
