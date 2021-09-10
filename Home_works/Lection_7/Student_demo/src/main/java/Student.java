@@ -5,24 +5,34 @@ public final class Student {
     int age;
     String group;
 
+    public Student(String name, int age, String group) {
+        this.name = name;
+        this.age = age;
+        this.group = group;
+    }
+
     @Override
     public boolean equals(Object object) {
         if (this ==object) return true;
-        if (object!= null && object.getClass() == this.getClass()){
-            return false;
-        }
 
-        Student student = (Student) object;
-        if (this.age == student.age &&
-                this.group.equals(student.group) &&
-                this.name.equals(student.group)){
-            return true;
+         if (object instanceof Student){
+            Student student = (Student) object;
+            return (this.age == student.age &&
+                    this.group.equals(student.group) &&
+                    this.name.equals(student.name));
         }
-            return false;
+        return false;
+
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(name, age, group);
+    }
+
+    public static void main(String[] args) {
+        Student student = new Student("petro",20,"1P-13");
+        Student student2 = new Student("petro",20,"1P-13");
+        System.out.println(student.equals(student2));
     }
 }
