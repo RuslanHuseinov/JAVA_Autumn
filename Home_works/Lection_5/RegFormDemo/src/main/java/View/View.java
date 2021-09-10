@@ -3,18 +3,18 @@ package View;
 import java.util.ResourceBundle;
 
 public class View {
-    private ResourceBundle resourceBundle = ResourceBundle.getBundle("");
+    public ResourceBundle resourceBundle = ResourceBundle.getBundle("messages");
+
     public void printMessage(String message){
         System.out.println(message);
     }
+
     public void printWrongDataMessage(String message){
-        //        some code
-        //        some code
+        System.out.println(resourceBundle.getString(MessageConsts.WRONG_INPUT_MESSAGE));
         System.out.println(message);
     }
     public void printInputDataMessage(String message){
-        //        some code
-        //        some code
+        System.out.println(resourceBundle.getString(MessageConsts.HEADER_MESSAGE));
         System.out.println(message);
     }
 
