@@ -1,13 +1,11 @@
-import Interfaces.Emoployee;
+import Interfaces.Controller;
+import Controller.BookkeepingController;
+import View.*;
 
 public class Main {
     public static void main(String[] args) {
-        Emoployee employeers[] = new Emoployee[10];
-        for (Emoployee e: employeers
-             ) {
-            e.getName();
-            e.getSalary();
+        Controller controller = new BookkeepingController(new BookkeepingView());
+        controller.init();
 
-        }
     }
 }
