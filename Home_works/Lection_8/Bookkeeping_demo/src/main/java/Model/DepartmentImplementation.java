@@ -50,11 +50,12 @@ public class DepartmentImplementation implements Department {
 
     @Override
     public long getSalary(Employee employee) {
-        long localFund = (long) (fund * 0.8);
-        localFund = allEmployees.size()
-        long result = localFund + employee.getSalaryBonus();
+//        salart LOGIC >????????????????????????
+//        long localFund = (long) (fund * 0.8) / getAllEmployeesList().size() == 0 ? 1 : getAllEmployeesList().size();
+//        long result = localFund + employee.getSalaryBonus();
+//        return result;
 
-        return result;
+        return 0;
     }
 
     @Override

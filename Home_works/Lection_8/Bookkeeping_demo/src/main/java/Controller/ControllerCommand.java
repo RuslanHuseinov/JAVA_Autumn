@@ -5,10 +5,10 @@ import Interfaces.Controller;
 import Interfaces.Employee;
 
 
-public class EmployeeCommand implements Command<Controller> {
+public class ControllerCommand implements Command {
     private String name;
 
-    public EmployeeCommand(String name) {
+    public ControllerCommand(String name) {
         this.name = name;
     }
 

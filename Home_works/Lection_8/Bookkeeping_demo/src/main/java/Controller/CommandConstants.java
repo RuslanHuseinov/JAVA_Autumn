@@ -5,37 +5,39 @@ import Interfaces.Controller;
 
 
 public class CommandConstants {
-    static Command[] mainMenuCommands = {
+    public static Command[] mainMenuCommands = {
             CommandConstants.returningCommand,
-            new EmployeeCommand("create") {
+            new ControllerCommand("create") {
                 @Override
                 public void execute(Controller controller) {
                 controller.setCommands(CommandConstants.createCommands);
                 }
             },
-            new EmployeeCommand("Delete an employee") {
+            new ControllerCommand("delete") {
                 @Override
                 public void execute(Controller controller) {
-                controller.getView().printMessage("Trying to delete employees");
+                    controller.setCommands(CommandConstants.deleteCommands);
                 }
             },
-            new EmployeeCommand("Get all employees"){
+            new ControllerCommand("get"){
                 @Override
                 public void execute(Controller controller) {
-
+                    controller.setCommands(CommandConstants.getCommands);
                 }
             },
-            new EmployeeCommand("exit"){
+            new ControllerCommand("exit"){
                 @Override
-                public void execute(Controller controller) {
-                System.exit(0);
+                public void execute(Controller controller) { 
+                    System.exit(0);
                 }
             }
 
     };
-    static Command[] createCommands = {
+    public static Command[] deleteCommands ={CommandConstants.returningCommand};
+    private static Command[] getCommands = {CommandConstants.returningCommand};
+    public static Command[] createCommands = {
             CommandConstants.returningCommand,
-            new EmployeeCommand("Create an employee"){
+            new ControllerCommand("Create an employee"){
                 @Override
                 public void execute(Controller controller) {
 
@@ -43,7 +45,7 @@ public class CommandConstants {
             },
     };
 
-    static Command returningCommand = new EmployeeCommand("return"){
+    public static Command returningCommand = new ControllerCommand("return"){
         @Override
         public void execute(Controller controller) {
             controller.setCommands(CommandConstants.mainMenuCommands);
