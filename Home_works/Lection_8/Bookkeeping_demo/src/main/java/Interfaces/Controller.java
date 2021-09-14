@@ -1,8 +1,5 @@
 package Interfaces;
 
-import Model.Company;
-
-import java.util.List;
 import java.util.Scanner;
 
 public interface Controller {

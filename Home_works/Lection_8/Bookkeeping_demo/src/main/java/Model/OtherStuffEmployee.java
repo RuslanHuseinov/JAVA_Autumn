@@ -16,4 +16,17 @@ public class OtherStuffEmployee extends RegularEmployee implements Employee, Oth
     public String getDescription() {
         return description;
     }
+
+    @Override
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder result =  new StringBuilder(super.toString());
+        result.append("OtherStuff description : " + description);
+        return result.toString();
+    }
+
 }

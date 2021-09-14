@@ -39,4 +39,11 @@ public class ManagerEmployee extends RegularEmployee implements Employee, Manage
     public boolean addEmployeeToManager(Employee employeeForHiring) {
         return managersEmployees.add(employeeForHiring);
     }
+
+    @Override
+    public String toString() {
+        StringBuilder result =  new StringBuilder(super.toString());
+        result.append("Manager employees : " + managersEmployees);
+        return result.toString();
+    }
 }

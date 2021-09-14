@@ -2,10 +2,8 @@ package Controller;
 
 import Interfaces.Command;
 import Interfaces.Controller;
-import Interfaces.Employee;
 
-
-public class ControllerCommand implements Command {
+public class ControllerCommand implements Command<Controller> {
     private String name;
 
     public ControllerCommand(String name) {

@@ -9,7 +9,6 @@ import java.util.List;
 
 public class DepartmentImplementation implements Department {
     List<Employee> allEmployees = new LinkedList<>();
-    List<Manager> allManagers = new LinkedList<>();
     private String name;
     private long fund;
 
@@ -31,11 +30,6 @@ public class DepartmentImplementation implements Department {
     @Override
     public boolean removeEmployee(Employee employee) {
         return allEmployees.remove(employee);
-    }
-
-    @Override
-    public List<Manager> getAllManagersList() {
-        return allManagers;
     }
 
     @Override

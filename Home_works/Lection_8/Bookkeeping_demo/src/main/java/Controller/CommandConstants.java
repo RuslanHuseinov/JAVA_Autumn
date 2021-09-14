@@ -27,7 +27,7 @@ public class CommandConstants {
             new ControllerCommand("Create an employee"){
                 @Override
                 public void execute(Controller controller) {
-                controller.getCompany()
+//                controller.getCompany()
                 }
             },
     };

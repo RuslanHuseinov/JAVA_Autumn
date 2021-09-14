@@ -7,7 +7,6 @@ public interface Department {
     public void setName(String name);
     public boolean addEmployee(Employee employee);
     public boolean removeEmployee(Employee employee);
-    List<Manager> getAllManagersList();
     List<Employee> getAllEmployeesList();
     public void setFund(long money);
     public long getFund();

@@ -11,6 +11,7 @@ public class JAVAzon implements Company {
     List<Department> departments;
 
     public JAVAzon() {
+
         this.departments = new LinkedList<>() ;
     }
 
