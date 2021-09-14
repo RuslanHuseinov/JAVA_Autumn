@@ -10,6 +10,7 @@ public interface Department {
     List<Manager> getAllManagersList();
     List<Employee> getAllEmployeesList();
     public void setFund(long money);
+    public long getFund();
     public long getSalary(Employee employee);
     public int size(); // must return employeesListSize()
 }

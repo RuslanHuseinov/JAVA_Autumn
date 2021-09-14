@@ -1,41 +1,40 @@
 package Controller;
 
 import Interfaces.*;
+import Model.JAVAzon;
 import View.*;
-import Model.Company;
 
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Scanner;
 
 
-public class BookkeepingController implements Controller<Employee> {
-    List<Employee> presentEmployeeList = new LinkedList<>();
-    public Scanner scanner = new Scanner(System.in);
-    public Command[] commands = CommandConstants.mainMenuCommands;
+public class BookkeepingController implements Controller {
+    Company company;  // model
+    public Scanner scanner;
+    public Command[] commands;
     public View view;
 
     public BookkeepingController( View view) {
+        company = new JAVAzon();
+        scanner = new Scanner(System.in);
+        commands = CommandConstants.MAIN_MENU_COMMANDS;
         this.view = view;
     }
 
     public void init(){
-    startProgram();
-    }
-    public void startProgram(){
         while (true){
             view.printMessage(view.getResourceBunde().getString(MessageConstants.LIST_OF_AVAILABLE_COMMAND));
-            view.showCommands(this.commands);
+            view.showCommands(commands);
             String choicedCommandName = inputStringWithScanner();
             chooseCommand(choicedCommandName);
-
         }
     }
+
     public void chooseCommand(String commandName){
         if ((commandName != null && commandName.length()>0)) {
-            for (Command command : this.commands) {
+            for (Command command : commands) {
                 if (command.getName().equalsIgnoreCase(commandName)) {
                     command.execute(this);
+                    break;
                 }
             }
         }else
@@ -66,7 +65,7 @@ public class BookkeepingController implements Controller<Employee> {
     }
 
     @Override
-    public List<Employee> getList() {
-        return presentEmployeeList;
+    public Company getCompany() {
+        return this.company;
     }
 }

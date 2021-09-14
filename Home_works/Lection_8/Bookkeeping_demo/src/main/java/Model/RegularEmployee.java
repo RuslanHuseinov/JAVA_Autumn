@@ -15,13 +15,17 @@ public class RegularEmployee implements Employee {
     private Department department;
     @Override
     public int getId() {
-        return 0;
+        return ID;
     }
 
     @Override
     public long getSalaryBonus() {
+        long result = 0;
         LocalDate currentDate = LocalDate.now();
-
+        if (this.getBirthDate().getMonth() == currentDate.getMonth()){
+            result +=( department.getFund()/ department.getAllEmployeesList().size() * 0.8) * 0.01;
+        }
+        return result;
     }
 
     @Override
@@ -31,12 +35,12 @@ public class RegularEmployee implements Employee {
 
     @Override
     public String getName() {
-        return null;
+        return name;
     }
 
     @Override
     public void setBirthDate(LocalDate date) {
-
+            this.birthDate = date;
     }
 
     @Override
@@ -46,7 +50,7 @@ public class RegularEmployee implements Employee {
 
     @Override
     public void setHiringDate(LocalDate date) {
-
+        this.hiringDate = date;
     }
 
     @Override
@@ -56,11 +60,22 @@ public class RegularEmployee implements Employee {
 
     @Override
     public void setDepartment(Department department) {
-
+        this.department = department;
     }
 
     @Override
     public Department getDepartment() {
-        return null;
+        return department;
+    }
+
+    @Override
+    public String toString() {
+        return "RegularEmployee{" +
+                "name='" + name + '\'' +
+                ", birthDate=" + birthDate +
+                ", hiringDate=" + hiringDate +
+                ", ID=" + ID +
+                ", department=" + department +
+                '}';
     }
 }

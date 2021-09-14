@@ -59,6 +59,11 @@ public class DepartmentImplementation implements Department {
     }
 
     @Override
+    public long getFund() {
+        return fund;
+    }
+
+    @Override
     public int size() {
         return 0;
     }

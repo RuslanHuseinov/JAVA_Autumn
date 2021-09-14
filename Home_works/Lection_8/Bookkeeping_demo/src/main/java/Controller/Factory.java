@@ -1,5 +1,5 @@
 package Controller;
 
-public class Fabric {
+public class Factory {
 
 }
