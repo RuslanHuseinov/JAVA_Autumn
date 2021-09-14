@@ -8,15 +8,12 @@ import java.util.Date;
 import java.util.Locale;
 
 public class RegularEmployee implements Employee {
+    private int ID;
     private String name;
     private LocalDate birthDate;
     private LocalDate hiringDate;
-    private int ID;
     private Department department;
-    @Override
-    public int getId() {
-        return ID;
-    }
+
 
     @Override
     public long getSalaryBonus() {
@@ -29,8 +26,12 @@ public class RegularEmployee implements Employee {
     }
 
     @Override
+    public int getId() {
+        return ID;
+    }
+    @Override
     public void setName(String name) {
-
+    this.name = name;
     }
 
     @Override
@@ -68,14 +69,4 @@ public class RegularEmployee implements Employee {
         return department;
     }
 
-    @Override
-    public String toString() {
-        return "RegularEmployee{" +
-                "name='" + name + '\'' +
-                ", birthDate=" + birthDate +
-                ", hiringDate=" + hiringDate +
-                ", ID=" + ID +
-                ", department=" + department +
-                '}';
-    }
 }

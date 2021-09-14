@@ -1,21 +1,17 @@
 package Model;
 
-
-import Interfaces.Department;
-import Interfaces.Employee;
-import Interfaces.Manager;
+import Interfaces.*;
 
 import java.time.LocalDate;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.Date;
 
-public class ManagerEmployee implements Employee, Manager {
+public class OtherPersonalEmployee  implements Employee, OtherPersonal {
     private int ID;
     private String name;
     private LocalDate birthDate;
     private LocalDate hiringDate;
     private Department department;
-    private List<Employee> managersEmployees = new LinkedList<>();
+    private String description;
 
     @Override
     public int getId() {
@@ -62,42 +58,30 @@ public class ManagerEmployee implements Employee, Manager {
     }
 
     @Override
-    public long getManagerBonus() {
-        long result = 0;
-        result += getSalaryBonus();
-        result += getManagersEmployees().size() * ((department.getFund() * 0.8) * 0.01);
-        return result;
-    }
-
-    @Override
     public long getSalaryBonus() {
         long result = 0;
         LocalDate currentDate = LocalDate.now();
         if (this.getBirthDate().getMonth() == currentDate.getMonth()){
             result +=( department.getFund()/ department.getAllEmployeesList().size() * 0.8) * 0.01;
         }
-        return result + getManagerBonus();
+        return result;
     }
 
     @Override
-    public List<Employee> getManagersEmployees() {
-        return managersEmployees;
+    public String getDescription() {
+        return description;
     }
 
     @Override
-    public boolean removeEmployeeFromManager(Employee employeeForFiring) {
-       return managersEmployees.remove(employeeForFiring);
-    }
-
-    @Override
-    public boolean addEmployeeToManager(Employee employeeForHiring) {
-        return managersEmployees.add(employeeForHiring);
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     @Override
     public String toString() {
         StringBuilder result =  new StringBuilder(super.toString());
-        result.append("Manager employees : " + managersEmployees);
+        result.append("OtherPersonal description : " + description);
         return result.toString();
     }
+
 }

@@ -1,5 +1,7 @@
 package Interfaces;
 
+import com.sun.istack.internal.NotNull;
+
 import java.time.LocalDate;
 import java.util.Date;
 
@@ -12,6 +14,6 @@ public interface Employee {
     public void setHiringDate(LocalDate date);
     public LocalDate getHiringDate();
     public void setDepartment(Department department); // set link for
-    public Department getDepartment();
+    public Department getDepartment(); /* @NotNull?*/
     public long getSalaryBonus();
 }

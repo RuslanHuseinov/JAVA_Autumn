@@ -2,11 +2,15 @@ package Controller;
 
 import Exceptions.EmployeeNotFoundException;
 import Interfaces.*;
+import Model.DepartmentImplementation;
 import Model.ManagerEmployee;
 
 import java.util.List;
 
-public class EmployeeUtilities {
+public class Utilities {
+    public static Department createDepartment(){
+        return new DepartmentImplementation();
+    }
     public static Employee createEmployee(){
         return new ManagerEmployee();
     }
@@ -16,8 +20,8 @@ public class EmployeeUtilities {
     public static void setEmployeeFields(Employee employee, String[] fields){
 
     }
-    public static void setOtherStuffFields(OtherStuff otherStuff, String description){
-        otherStuff.setDescription(description);
+    public static void setOtherStuffFields(OtherPersonal otherPersonal, String description){
+        otherPersonal.setDescription(description);
     }
     public static boolean addEmployeeToDepartment(Department department, Employee employee){
         if (!department.getAllEmployeesList().contains(employee)){
@@ -83,10 +87,15 @@ public class EmployeeUtilities {
     public static String getAllOtherStuffAsStringFromList(List<Employee> list){
         StringBuilder stringBuilder = new StringBuilder("");
         for (Employee employee: list){
-            if (employee instanceof OtherStuff){
+            if (employee instanceof OtherPersonal){
                 stringBuilder.append(employee.toString());
             }
         }
         return stringBuilder.toString();
+    }
+
+    public static Department chooseDepartment(Company company) {
+
+        return null;
     }
 }

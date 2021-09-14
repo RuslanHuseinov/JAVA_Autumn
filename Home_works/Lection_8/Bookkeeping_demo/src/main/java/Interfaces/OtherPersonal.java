@@ -1,6 +1,6 @@
 package Interfaces;
 
-public interface OtherStuff {
+public interface OtherPersonal {
     public String getDescription();
     public void setDescription(String description);
 }
