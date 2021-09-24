@@ -11,20 +11,18 @@ public class BookkeepingController implements Controller {
     Company company;  // model
     public View view;
     public Scanner scanner;
-    public Command[] commands;
 
 
     public BookkeepingController(View view) {
         company = new JAVAzon();
         scanner = new Scanner(System.in);
-        commands = CommandConstants.MAIN_MENU_COMMANDS;
         this.view = view;
     }
 
     public void init() {
         while (true) {
             view.printMessage(view.getResourceBunde().getString(MessageConstants.INPUT_COMMAND));
-            view.showCommands(commands);
+            view.showCommands();
             String choicedCommandName = inputStringWithScanner();
             chooseCommand(choicedCommandName);
         }
@@ -32,12 +30,7 @@ public class BookkeepingController implements Controller {
 
     public void chooseCommand(String commandName) {
         if ((commandName != null && commandName.length() > 0)) {
-            for (Command command : commands) {
-                if (command.getName().equalsIgnoreCase(commandName)) {
-                    command.execute(this);
-                    break;
-                }
-            }
+
         } else
             view.printWrongDataInput(view.getResourceBunde().getString(MessageConstants.WRONG_DATA_INPUT_COMMAND));
 
@@ -55,15 +48,6 @@ public class BookkeepingController implements Controller {
     @Override
     public View getView() {
         return view;
-    }
-
-    @Override
-    public Command[] getCommands() {
-        return commands;
-    }
-
-    public void setCommands(Command[] commands) {
-        this.commands = commands;
     }
 
     @Override

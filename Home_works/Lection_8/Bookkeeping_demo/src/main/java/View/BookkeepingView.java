@@ -14,9 +14,9 @@ public class BookkeepingView implements View {
     }
 
     @Override
-    public void showCommands(Command... args) {
-        for (Command command : args){
-            printMessage(command.toString());
+    public void showCommands(String... commandsName) {
+        for (String command : commandsName){
+            printMessage(command);
         }
     }
 
